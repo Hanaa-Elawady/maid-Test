@@ -1,0 +1,46 @@
+<div *ngIf="!spinner">
+    <section class="my-5">
+        <div class="container-fluid">
+            <div class="row gy-4 justify-content-center">
+                <ng-container *ngFor="let item of usersData | paginate: { id: 'maid', itemsPerPage: pageSize, currentPage: currentPage, totalItems: total} ">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card mx-auto" style="width: 16rem; height: 25rem;">
+                            <img [src]="item.avatar" class="card-img-top" [alt]="item.first_name" style="height: 14rem;">
+                            <div class="card-body">
+                            <h5 class="card-title">{{item.first_name}} {{item.last_name}}</h5>
+                            <p class="card-text">Email:<br> {{item.email}}</p>
+                            <a [routerLink]="['/details' ,item.id]" class="btn btn-danger">More Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </section>
+    
+    <div class="text-center my-3">
+        <pagination-controls  id="maid"
+                            (pageChange)="pageChanged($event)"
+                            (pageBoundsCorrection)="pageChanged($event)"
+                            [directionLinks]="true"
+                            [autoHide]="false"
+                            [responsive]="true"
+                            previousLabel="Previous"
+                            nextLabel="Next"
+                            screenReaderPaginationLabel="Pagination"
+                            screenReaderPageLabel="page"
+                            screenReaderCurrentLabel="You're on page"
+                            class="pagination pagination-danger">
+
+        </pagination-controls>
+    </div>
+    
+</div>
+
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+type="ball-scale-multiple"
+[zIndex]="-1">
+</ngx-spinner>

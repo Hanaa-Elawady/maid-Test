@@ -1,0 +1,54 @@
+<div class="fixed-top shadow">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-center flex-sm-column flex-md-row">
+            <div class="col-md-3">
+              <div class="d-flex justify-content-between">
+                <h3 class="navbar-brand text-danger fw-bolder" >Maids DashBoard</h3>
+                <button
+                class="navbar-toggler d-lg-none"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId"
+                aria-controls="collapsibleNavId"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              </div>
+            </div>
+            <div class="col-md-6 collapse  navbar-collapse" id="collapsibleNavId">
+              <div class="w-100 my-3">
+                  <form class="w-100 mx-auto position-relative">
+                    <input [(ngModel)]="IDSearch" [ngModelOptions]="{standalone: true}" type="number" placeholder="search" class="form-control w-50 mx-auto" #searchField (focus)="this.SearchResults=true">
+                    <div #SearchResultField class=" w-50 position-absolute mx-auto bg-body rounded-3 result" *ngIf="SearchResults && IDSearch != undefined ">
+                        <div *ngFor="let item of usersData | searchByID :IDSearch">
+                          <div class="border-bottom pt-2 searchOption px-2 py-1" [routerLink]="['details' , item.id]" (click)="this.SearchResults=false" (click)="IDSearch = undefined " role="button">
+                            <div class="row">
+                              <div class="col-3">ID ={{item.id}}</div>
+                              <div class="col-9">Name:{{item.first_name}} {{item.last_name}}</div>
+                            </div>
+                            <p></p>
+                          </div>
+                        </div>
+                    </div>
+                  </form>
+              </div>
+            </div>
+            <div class="col-md-3 justify-content-end collapse  navbar-collapse" id="collapsibleNavId" >
+                <div>
+                    <ul class="nav text-capitalize">
+                      <li class="nav-item">
+                        <a class="nav-link text-dark" routerLink="home" routerLinkActive="bg-dark text-white rounded-3">home</a>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  

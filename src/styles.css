@@ -1,0 +1,29 @@
+/* Custom pagination styles */
+#maid {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  
+  #maid li {
+    margin: 0 5px;
+  }
+  
+  #maid a {
+    color: #d9534f; 
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: all 0.3s ease; 
+  }
+  
+  #maid a:hover {
+    background-color: #d9534f;
+    color: #fff; 
+  }
+  
+  #maid .current {
+    background-color: #212529;
+    color: #d9534f;
+  }
+  

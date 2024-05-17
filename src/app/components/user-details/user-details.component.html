@@ -1,0 +1,25 @@
+<div *ngIf="!spinner">
+<div class="card p-3 mx-auto mt-5 mb-3" style="max-width: 540px;">
+    <div class="row no-gutters align-content-center">
+      <div class="col-md-4">
+        <img [src]="userData.avatar" class="card-img" [alt]="userData.first_name">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{userData.first_name}}  {{userData.last_name}}</h5>
+          <p class="card-text">User ID : {{userData.id}}</p>
+          <p class="card-text">User Email : {{userData.email}}</p>
+          <button routerLink="/home" class="btn btn-danger ">Back to Home Page</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+type="ball-scale-multiple"
+[zIndex]="-1">
+</ngx-spinner>
